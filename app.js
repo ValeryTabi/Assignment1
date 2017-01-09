@@ -6,8 +6,8 @@ angular.module("LaunchApp",[])
 
 //myVMController.$inject = ['$scope'];
  function myVMController($scope) {
-   $scope.launchVal = "Hello, Testing";
-   $scope.launchstr = "Na weti sef norh";
+   $scope.launchVal = "";
+   $scope.launchstr = "";
    $scope.arrlen = 0;
 
    $scope.Calc = function () {
@@ -15,8 +15,11 @@ angular.module("LaunchApp",[])
     //
     var arr = splitString($scope.launchstr,',');
     //$scope.launchVal = arr.length;
+    if ($scope.launchstr == ""){
+        $scope.launchVal = "Please enter data first";
+    }else{
     $scope.launchVal = giveRes(arr);
-
+    }
 
    };
 
@@ -33,10 +36,11 @@ angular.module("LaunchApp",[])
 
 function giveRes(str){
 
+
   if (str.length > 3){
-    return "Too Much";
+    return "Too much";
   }
-  else {
+  else  {
     return "Enjoy";
   }
 
